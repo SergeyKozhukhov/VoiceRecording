@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">VoiceRecording</string>
+
+    <string name="button_start_service">Start Service</string>
+    <string name="button_stop_service">Stop Service</string>
+
+    <string name="timer_service_content_title">Timer Service</string>
+    <string name="timer_service_content_description">"Time: "</string>
+
+    <string name="notification_channel_name">Channel name</string>
+    <string name="notification_channel_description">Channel Description</string>
+
+</resources>
