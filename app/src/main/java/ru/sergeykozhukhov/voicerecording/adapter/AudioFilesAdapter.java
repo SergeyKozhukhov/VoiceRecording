@@ -1,4 +1,4 @@
-package ru.sergeykozhukhov.voicerecording;
+package ru.sergeykozhukhov.voicerecording.adapter;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -13,25 +13,24 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecordingListAdapeter extends RecyclerView.Adapter<RecordingListAdapeter.FileHolder> {
+import ru.sergeykozhukhov.voicerecording.R;
+
+public class AudioFilesAdapter extends RecyclerView.Adapter<AudioFilesAdapter.FileHolder> {
 
     /**
      * Обработчик нажатия на элементы
      */
-    // private OnItemFileClickListener onItemFileClickListener;
+    private OnItemAudioFileClickListener onItemAudioFileClickListener;
 
     /**
      * Список файлов, названия которых предполагаются к отображению
      */
     private List<File> files = new ArrayList<>();
 
-    /*public FileAdapter(OnItemFileClickListener onItemFileClickListener) {
-        this.onItemFileClickListener = onItemFileClickListener;
-    }*/
-
-    public RecordingListAdapeter() {
-
+    public AudioFilesAdapter(OnItemAudioFileClickListener onItemAudioFileClickListener) {
+        this.onItemAudioFileClickListener = onItemAudioFileClickListener;
     }
+
 
     public void setFiles(List<File> files) {
         this.files = files;
@@ -45,8 +44,7 @@ public class RecordingListAdapeter extends RecyclerView.Adapter<RecordingListAda
 
         View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
 
-        return new FileHolder(view);
-        //return new FileHolder(view, onItemFileClickListener);
+        return new FileHolder(view, onItemAudioFileClickListener);
     }
 
     @Override
@@ -72,7 +70,6 @@ public class RecordingListAdapeter extends RecyclerView.Adapter<RecordingListAda
         return files.size();
     }
 
-
     public class FileHolder extends RecyclerView.ViewHolder {
 
         /**
@@ -81,7 +78,7 @@ public class RecordingListAdapeter extends RecyclerView.Adapter<RecordingListAda
         private TextView fileName_text_view;
 
         /**
-         * Изображение для идентификации файллов
+         * Изображение для идентификации файлов
          */
         private Drawable file_drawable;
 
@@ -91,11 +88,11 @@ public class RecordingListAdapeter extends RecyclerView.Adapter<RecordingListAda
         private Drawable directory_drawable;
 
 
-        FileHolder(@NonNull View itemView) {
+        FileHolder(@NonNull View itemView, final OnItemAudioFileClickListener onItemAudioFileClickListener) {
             super(itemView);
             fileName_text_view = itemView.findViewById(android.R.id.text1);
 
-            file_drawable = itemView.getResources().getDrawable(R.drawable.ic_launcher_background);
+            file_drawable = itemView.getResources().getDrawable(R.drawable.ic_music);
             directory_drawable = itemView.getResources().getDrawable(R.drawable.ic_launcher_foreground);
 
             /*
@@ -107,7 +104,7 @@ public class RecordingListAdapeter extends RecyclerView.Adapter<RecordingListAda
             fileName_text_view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // onItemFileClickListener.onItemClick(files.get(getAdapterPosition()));
+                    onItemAudioFileClickListener.onPlayAudioFile(files.get(getAdapterPosition()));
                 }
             });
         }

@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.sergeykozhukhov.voicerecording">
 
-
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +21,16 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".TimerService" />
+        <service
+            android:name=".services.FileManagerService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".services.PlayerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":externalProcess"/>
 
     </application>
 

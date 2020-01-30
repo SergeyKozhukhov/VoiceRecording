@@ -6,24 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/start_service_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_start_service" />
-
-    <Button
-        android:id="@+id/stop_service_button"
+    <ImageButton
+        android:id="@+id/delete_directory_image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:text="@string/button_stop_service" />
+        android:src="@drawable/ic_delete" />
+
+    <ImageButton
+        android:id="@+id/update_list_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/delete_directory_image_button"
+        android:src="@drawable/ic_update" />
+
+
+    <ImageButton
+        android:id="@+id/start_record_service_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_record_voice" />
+
+    <ImageButton
+        android:id="@+id/pause_player_service_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_record_service_button"
+        android:src="@drawable/ic_pause_circle"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/stop_player_service_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/pause_player_service_button"
+        android:layout_alignTop="@id/pause_player_service_button"
+        android:src="@drawable/ic_stop"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/indicator_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/indicator_seek_bar"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        tools:text = "indicator"/>
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/indicator_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pause_player_service_button"
+        android:max="100"
+        android:visibility="gone"
+        />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id = "@+id/recording_list_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/indicator_seek_bar"/>
 
 
 

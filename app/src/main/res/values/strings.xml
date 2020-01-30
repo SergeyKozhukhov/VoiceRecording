@@ -1,13 +1,22 @@
 <resources>
     <string name="app_name">VoiceRecording</string>
 
-    <string name="button_start_service">Start Service</string>
-    <string name="button_stop_service">Stop Service</string>
+    <string name="button_start_record">Start record</string>
+    <string name="button_stop_record">Stop record</string>
 
-    <string name="timer_service_content_title">Timer Service</string>
-    <string name="timer_service_content_description">"Time: "</string>
-
-    <string name="notification_channel_name">Channel name</string>
-    <string name="notification_channel_description">Channel Description</string>
+    <string name="file_service_notif_title">AudioFilesManager</string>
+    <string name="file_service_notif_text">List updated</string>
+    <string name="file_service_channel_name">State directory</string>
+    <string name="file_service_channel_description">Indicate state of directory</string>
+    <string name="player_service_notif_titile">PlayerService</string>
+    <string name="player_service_channel_name">PlayerService</string>
+    <string name="player_service_channel_description">PlayVoiceRecording</string>
+    <string name="indicator_progress_text_view">%1$ls -> %2$l%</string>
+    <string name="notif_stop_button">stop</string>
+    <string name="notif_pause_button">pause</string>
+    <string name="indicator_time_text_view"><![CDATA[%d -> %d%%]]></string>
+    <string name="message_toast_stop_player">Stop player</string>
+    <string name="message_toast_stop_recorder">Stop recorder</string>
+    <string name="message_toast_list_updated">List updated</string>
 
 </resources>
